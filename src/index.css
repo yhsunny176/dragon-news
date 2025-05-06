@@ -8,6 +8,9 @@
   --color-blk-txt-primary: #403F3F;
   --color-blk-txt: #706F6F;
   --color-blk-txt-lt: #9F9F9F;
+
+  --color-light-gray: #f3f3f3;
+  --color-velvet-red: #D72050;
 }
 
 *{
