@@ -5,7 +5,7 @@ const Category = ({category}) => {
   const {id, name} = category;
   return (
     <div className='max-w-full py-4 px-10'>
-      <NavLink className={"btn border-0 bg-none w-full text-blk-lt cursor-pointer hover:bg-light-gray"} to={`/category/${id}`}>{name}</NavLink>
+      <NavLink className={"btn border-0 bg-white w-full text-blk-lt cursor-pointer hover:bg-light-gray"} to={`/category/${id}`}>{name}</NavLink>
     </div>
   );
 };

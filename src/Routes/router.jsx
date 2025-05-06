@@ -4,8 +4,9 @@ import Home from "../Layouts/Home/Home";
 import About from "../pages/About/About";
 import Career from "../pages/Career/Career";
 import Login from "../pages/Login/Login";
-import HomeNews from "../Components/Home News/HomeNews";
 import CatNews from "../pages/Category news/CatNews";
+import Register from "../pages/Register/Register";
+import AuthenticationLayout from "../Layouts/Authentication/AuthenticationLayout";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,8 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: "",
-                        element: <HomeNews></HomeNews>,
+                        element: <CatNews></CatNews>,
+                        loader: () => fetch("/news.json").then((res) => res.json())
                     },
                     {
                         path: "/category/:id",
@@ -36,8 +38,18 @@ export const router = createBrowserRouter([
                 Component: Career,
             },
             {
-                path: "/login",
-                element: <Login></Login>,
+                path: "/auth",
+                element: <AuthenticationLayout></AuthenticationLayout>,
+                children: [
+                  {
+                    path: "/auth/login",
+                    element: <Login></Login>
+                  },
+                  {
+                    path: "/auth/register",
+                    element: <Register></Register>
+                  }
+                ]
             },
             {
                 path: "/*",
