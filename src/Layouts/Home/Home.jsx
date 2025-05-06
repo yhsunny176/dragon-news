@@ -34,7 +34,7 @@ const Home = () => {
                 </div>
             </header>
 
-            <main className="grid grid-cols-12 gap-5 *:border-1  w-11/12 mx-auto">
+            <main className="grid grid-cols-12 gap-5 w-11/12 mx-auto">
                 {/* Left Navigation */}
                 <aside className="left-side col-span-3">
                   <LeftAside></LeftAside>

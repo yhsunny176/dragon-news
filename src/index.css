@@ -16,3 +16,7 @@
 *{
   font-family: "Poppins", sans-serif;
 }
+
+a.active{
+  background-color: #f3f3f3;
+}

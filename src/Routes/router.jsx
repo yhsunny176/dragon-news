@@ -23,6 +23,7 @@ export const router = createBrowserRouter([
                     {
                         path: "/category/:id",
                         element: <CatNews></CatNews>,
+                        loader: () => fetch("/news.json").then((res) => res.json())
                     },
                 ],
             },
