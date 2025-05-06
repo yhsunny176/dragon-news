@@ -16,7 +16,7 @@ const Navbar = () => {
       </ul>
 
       <div className='w-max justify-end'>
-        
+
         <Link className='py-3 px-5 text-white bg-blk-txt-primary' to={"/login"}>Login</Link>
       </div>
     </div>

@@ -4,6 +4,8 @@ import Home from "../Layouts/Home/Home";
 import About from "../pages/About/About";
 import Career from "../pages/Career/Career";
 import Login from "../pages/Login/Login";
+import HomeNews from "../Components/Home News/HomeNews";
+import CatNews from "../pages/Category news/CatNews";
 
 export const router = createBrowserRouter([
     {
@@ -11,9 +13,18 @@ export const router = createBrowserRouter([
         Component: Root,
         children: [
             {
-                index: true,
                 path: "/",
                 Component: Home,
+                children: [
+                    {
+                        path: "",
+                        element: <HomeNews></HomeNews>,
+                    },
+                    {
+                        path: "/category/:id",
+                        element: <CatNews></CatNews>,
+                    },
+                ],
             },
             {
                 path: "/about",
@@ -25,7 +36,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/login",
-                element: <Login></Login>
+                element: <Login></Login>,
             },
             {
                 path: "/*",

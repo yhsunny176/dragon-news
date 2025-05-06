@@ -4,6 +4,8 @@ import { Outlet } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
 import { format } from "date-fns";
 import Marquee from "react-fast-marquee";
+import LeftAside from "./LeftAside";
+import RightAside from "./RightAside";
 
 const Home = () => {
     return (
@@ -32,17 +34,21 @@ const Home = () => {
                 </div>
             </header>
 
-            <main>
+            <main className="grid grid-cols-12 gap-5 *:border-1  w-11/12 mx-auto">
                 {/* Left Navigation */}
-                <section className="left-nav"></section>
+                <aside className="left-side col-span-3">
+                  <LeftAside></LeftAside>
+                </aside>
 
                 {/* Main Section */}
-                <section className="main">
+                <section className="main col-span-6">
                     <Outlet></Outlet>
                 </section>
 
                 {/* Right Navigation */}
-                <section className="right-nav"></section>
+                <aside className="right-side col-span-3">
+                    <RightAside></RightAside>
+                </aside>
             </main>
         </div>
     );
