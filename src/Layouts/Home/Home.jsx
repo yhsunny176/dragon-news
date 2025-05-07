@@ -1,12 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import LeftAside from "./LeftAside";
 import RightAside from "./RightAside";
 import Header from "../../Components/header/Header";
 import Marquee from "react-fast-marquee";
 import Navbar from "../../components/Navbar/Navbar";
+import Loading from "../../pages/Loading/Loading";
 
 const Home = () => {
+    const { state }= useNavigation();
     return (
         <div className="w-full">
             {/* Header  */}
@@ -34,7 +36,7 @@ const Home = () => {
 
                 {/* Main Section */}
                 <section className="main col-span-6">
-                    <Outlet></Outlet>
+                    { state == "loading" ? <Loading></Loading> : <Outlet></Outlet> }
                 </section>
 
                 {/* Right Navigation */}

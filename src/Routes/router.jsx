@@ -10,6 +10,7 @@ import AuthenticationLayout from "../Layouts/Authentication/AuthenticationLayout
 import News from "../pages/news/News";
 import PrivateRoute from "../provider/PrivateRoute";
 import HomeNews from "../Layouts/HomeNews";
+import Loading from "../pages/Loading/Loading";
 
 export const router = createBrowserRouter([
     {
@@ -27,7 +28,8 @@ export const router = createBrowserRouter([
                     {
                         path: "/category/:id",
                         element: <CatNews></CatNews>,
-                        loader: () => fetch("/news.json").then((res) => res.json())
+                        loader: () => fetch("/news.json").then((res) => res.json()),
+                        hydrateFallbackElement: <Loading></Loading>,
                     },
                 ],
             },
@@ -59,7 +61,8 @@ export const router = createBrowserRouter([
               <PrivateRoute>
                 <News></News>
               </PrivateRoute>,
-              loader: () => fetch("/news.json").then((res)=>res.json())
+              loader: () => fetch("/news.json").then((res)=>res.json()),
+              hydrateFallbackElement: <Loading></Loading>,
             },
             {
                 path: "/*",
