@@ -23,7 +23,7 @@ const Navbar = () => {
 
     return (
         <div className="flex max-w-full items-center py-6 h-32">
-            <div>{user && user.email}</div>
+            {/* <div>{user && user.email}</div> */}
             <ul className="flex w-9/10 ml-20 justify-center items-center gap-5">
                 <NavLink className={activeBtnStyle} to={"/"}>
                     Home

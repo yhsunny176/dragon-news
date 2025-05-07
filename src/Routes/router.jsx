@@ -8,6 +8,8 @@ import CatNews from "../pages/Category news/CatNews";
 import Register from "../pages/Register/Register";
 import AuthenticationLayout from "../Layouts/Authentication/AuthenticationLayout";
 import News from "../pages/news/News";
+import PrivateRoute from "../provider/PrivateRoute";
+import HomeNews from "../Layouts/HomeNews";
 
 export const router = createBrowserRouter([
     {
@@ -20,8 +22,7 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: "",
-                        element: <CatNews></CatNews>,
-                        loader: () => fetch("/news.json").then((res) => res.json())
+                        element: <HomeNews></HomeNews>,
                     },
                     {
                         path: "/category/:id",
@@ -54,7 +55,10 @@ export const router = createBrowserRouter([
             },
             {
               path: "/news/:id",
-              element: <News></News>,
+              element: 
+              <PrivateRoute>
+                <News></News>
+              </PrivateRoute>,
               loader: () => fetch("/news.json").then((res)=>res.json())
             },
             {
