@@ -1,9 +1,10 @@
 import React, { use } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext);
+    const navigate = useNavigate();
     const activeBtnStyle = ({ isActive }) =>
         `px-3 py-2 text-base ${isActive ? "text-blk-primary font-bold" : "hover:bg-gray-200 rounded-xl"}`;
 
@@ -11,6 +12,8 @@ const Navbar = () => {
         logOut()
         .then(() => {
           alert('Successfully Logged Out');
+          navigate("/auth/login");
+
         })
         .catch((error)=>{
           const errorMessage = error.message;

@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import CatNews from "../pages/Category news/CatNews";
 import Register from "../pages/Register/Register";
 import AuthenticationLayout from "../Layouts/Authentication/AuthenticationLayout";
+import News from "../pages/news/News";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +51,11 @@ export const router = createBrowserRouter([
                     element: <Register></Register>
                   }
                 ]
+            },
+            {
+              path: "/news/:id",
+              element: <News></News>,
+              loader: () => fetch("/news.json").then((res)=>res.json())
             },
             {
                 path: "/*",

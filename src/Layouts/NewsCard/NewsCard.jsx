@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
-    const { author, title, thumbnail_url, details, rating } = news;
+    const { id, author, title, thumbnail_url, details, rating } = news;
     const { name, published_date, img } = author;
     const { number } = rating;
 
@@ -46,13 +47,18 @@ const NewsCard = ({ news }) => {
                 <button
                     className="text-orange-400 hover:text-orange-600 button cursor-pointer"
                     onClick={toggleReadMore}>
-                    {expanded ? "Read Less" : "Read More"}
+                    {expanded ? "Show Less" : "Show More"}
                 </button>
+                <div className="flex justify-end py-4">
+                    <Link to={`/news/${id}`} type="button" className="text-blue-400 py-2 px-3 rounded-md border-1 border-blue-200 hover:bg-blue-200 hover:text-blue-600 button cursor-pointer">
+                        Read More
+                    </Link>
+                </div>
 
                 <hr className="border-t border-gray-300 my-4" />
 
                 <div>
-                 <p>{number}</p>
+                    <p>{number}</p>
                 </div>
             </div>
         </div>
